@@ -17,20 +17,29 @@ app.use(loggerMiddleware)
 // app.use(validatorMeddleware)
 
 app.get('/', (req, res) => {
-    res.status(200).send('Every Thing Is Working Good')
+    res.send('Every Thing Is Working Good')
 });
 
+app.get("/person",validatorMeddleware, (req, res) => {
+    const name = req.query.name;
+    res.json({
+      name:name
+    });
+  });
 
-app.get('/person',(req,res)=>{
-    //http://localhost:3004/person?name=siham
-    let stringQuery={name:req.query.name}
-    if(stringQuery!==undefined)
-    {res.status(200).json(stringQuery)}
-    else{ errorHandler();}
-})
 
-app.get('/bad', (req, res, next) => {
-    next('error from bad end point');
+// app.get('/person',(req,res)=>{
+//     //http://localhost:3004/person?name=siham
+//     let stringQuery={name:req.query.name}
+//     if(stringQuery!==undefined)
+//     {res.status(200).json(stringQuery)}
+//     else{ errorHandler();}
+// })
+
+app.post('/bad', (req, res) => {
+    let num=10;
+    num.forEach(x=>{console.log(x)})
+    res.send('this is a bad route')
 })
 
 app.use('*',notFoundHandler)

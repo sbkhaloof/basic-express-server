@@ -1,5 +1,9 @@
 'use strict'
-module.exports=(req,res,next)=>{
-    console.log(`request method ${req.method} and request path is ${req.path}`);
+
+const loggerMiddleware = (req, res, next) => {
+    console.log("Request Info", req.method, req.path);
+  
     next();
-}
+  };
+  
+  module.exports = loggerMiddleware;
