@@ -9,6 +9,9 @@
 6. go to herouko and deploy once for the main branch and other for div branch
 
 
+![](lab2.jpg)
+
+
 [heroku link](https://siham-basic-express-server.herokuapp.com/)
 
 
